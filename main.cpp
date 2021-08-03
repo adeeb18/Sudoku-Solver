@@ -1,8 +1,12 @@
+/*Sudoku Solver using Backtracing Algorithm learned on https://www.geeksforgeeks.org/sudoku-backtracking-7/
+* Author: Adeeb Rashid
+* Last Edited: 8/2/2/2021
+*/
+
 #include <vector>
 #include <iostream>
 using namespace std;
 
-#define UNASSIGNED 0
 #define N 9
 
 bool checkFull(int board[N][N], int& row, int& col);
@@ -11,24 +15,22 @@ bool checkValid(int b[N][N], int row, int col, int num);
 
 bool Solver(int b[N][N]) {
 
-    int row;
-    int col;
+    int row = 0;
+    int col = 0;
 
     if (checkFull(b, row, col)) {
         return true;
     }
-    for (int num = 1; num <= 9; num++) {
-        cout << endl;
-        cout << row << " " << col << endl;
+    for (int num = 1; num <= 9; num++) {       
         if (checkValid(b, row, col, num)) {
             b[row][col] = num;
             if (Solver(b)) {
                 return true;
             }
-            cout << row << " " << col << endl;
             b[row][col] = 0;
         }
     }
+    return false;
 }
 
 bool checkFull(int board[N][N], int& row, int& col) {
@@ -39,7 +41,6 @@ bool checkFull(int board[N][N], int& row, int& col) {
             }
         }
     }
-    cout << "done";
     return true;
 }
 
@@ -96,6 +97,10 @@ void printBoard(int b[N][N]) {
 
 
 int main() {
+
+    cout << "Sudoku Solver 9x9" << endl;
+    cout << "-----------------" << endl << endl;
+
     int board[9][9] = {
         {5, 3, 0, 0, 7, 0, 0, 0, 0},
         {6, 0, 0, 1, 9, 5, 0, 0, 0},
@@ -108,11 +113,13 @@ int main() {
         {0, 0, 0, 0, 8, 0, 0, 7, 9}
     };
 
+    cout << "Original Board: " << endl;
     printBoard(board);
 
     cout << endl;
 
     if (Solver(board)) {
+        cout << "Solved Board: " << endl;
         printBoard(board);
     }
     else {

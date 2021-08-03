@@ -1,3 +1,2 @@
 ﻿  main.cpp
-C:\Users\adeeb\source\repos\SudokuSolver\SudokuSolver\main.cpp(32): warning C4715: 'Solver': not all control paths return a value
   SudokuSolver.vcxproj -> C:\Users\adeeb\source\repos\SudokuSolver\Debug\SudokuSolver.exe
