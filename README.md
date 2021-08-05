@@ -1,0 +1,3 @@
+# Sudoku-Solver
+This is a personal project in which I learned how to implement a backtracking algorithm to solve any given 9x9 sudoku board. 
+Additions in Python coming soon...
